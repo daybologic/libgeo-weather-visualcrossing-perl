@@ -30,26 +30,6 @@ sub lookup {
 	return $result; # TODO: Return a well-defined class
 }
 
-sub __makeURI {
-	my ($self, $location) = @_;
-
-	my $uri = URI->new();
-
-	$uri->scheme('https');
-	$uri->host('weather.visualcrossing.com');
-	$uri->path(sprintf(
-		'VisualCrossingWebServices/rest/services/timeline/%s/today',
-		$location,
-	));
-
-	$uri->query(sprintf(
-		'unitGroup=us&key=%s&contentType=json',
-		$self->__makeApiKey(),
-	));
-
-	return $uri->as_string();
-}
-
 sub __makeApiKey {
 	my ($self) = @_;
 	#return $self->_config->get($self, 'api_key'); # FIXME
