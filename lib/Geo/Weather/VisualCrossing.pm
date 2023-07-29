@@ -7,7 +7,7 @@ use LWP::UserAgent;
 use URI;
 
 BEGIN {
-	our $VERSION = '1.1.1';
+	our $VERSION = '0.1.0';
 }
 
 has __apiKey => (isa => 'Str', is => 'ro', init_arg => undef, lazy => 1, required => 1, default => \&__makeApiKey);
@@ -34,19 +34,6 @@ sub __makeApiKey {
 	my ($self) = @_;
 	#return $self->_config->get($self, 'api_key'); # FIXME
 	return 'Oa1dCEUAqVgZbCrg'; # nb. this is not a leaked real password; it is not a valid key, just a placeholder during development
-}
-
-# TODO: You must introduce a base class which creates one UA with one UA String!
-sub __makeUserAgent {
-	my ($self) = @_;
-
-	my $ua = LWP::UserAgent->new();
-
-	$ua->agent(join('/', 'telegram-bot/m6kvmdlcmdr', '1.1.1'));
-	#$ua->default_header(apikey => $self->__apiKey); # In this API, it's in the GET request
-	$ua->timeout(120);
-
-	return $ua;
 }
 
 sub __makeDecoder {

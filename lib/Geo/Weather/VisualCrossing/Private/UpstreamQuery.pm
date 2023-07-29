@@ -1,21 +1,12 @@
 package Geo::Weather::VisualCrossing::Private::UpstreamQuery;
 use Moose;
 
+use Geo::Weather::VisualCrossing;
 use LWP::UserAgent;
 use URI::Escape;
 
 has apiKey => (isa => 'Str', is => 'ro', required => 1);
 has __ua => (is => 'rw', isa => 'LWP::UserAgent', default => \&__makeUserAgent, lazy => 1);
-
-sub __makeUserAgent {
-	my ($self) = @_;
-
-	my $ua = LWP::UserAgent->new;
-	$ua->timeout(120);
-	$ua->env_proxy;
-
-	return $ua;
-}
 
 sub query {
 	my ($self, $location) = @_;
@@ -47,6 +38,18 @@ sub __makeURI {
 	));
 
 	return $uri->as_string();
+}
+
+sub __makeUserAgent {
+	my ($self) = @_;
+
+	my $ua = LWP::UserAgent->new();
+
+	$ua->agent(join('/', 'Geo::Weather::VisualCrossing', $Geo::Weather::VisualCrossing::VERSION));
+	$ua->timeout(120);
+	$ua->env_proxy;
+
+	return $ua;
 }
 
 1;
