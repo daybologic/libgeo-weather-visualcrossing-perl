@@ -6,8 +6,8 @@ use Moose;
 extends 'Test::Module::Runnable';
 
 use Cache::MemoryCache;
-use Daybo::Weather::Private::UpstreamQuery;
 use English qw(-no_match_vars);
+use Geo::Weather::VisualCrossing::Private::UpstreamQuery;
 use POSIX;
 use Test::Deep qw(cmp_deeply all isa methods bool re);
 use Test::Exception;
@@ -19,7 +19,7 @@ has __apiKey => (is => 'rw', isa => 'Str', default => 'WmzvSd9xay0jFjf7');
 sub setUp {
 	my ($self) = @_;
 
-	$self->sut(Daybo::Weather::Private::UpstreamQuery->new(apiKey => $self->__apiKey));
+	$self->sut(Geo::Weather::VisualCrossing::Private::UpstreamQuery->new(apiKey => $self->__apiKey));
 
 	return EXIT_SUCCESS;
 }

@@ -1,4 +1,4 @@
-package Daybo::Weather::Client;
+package Geo::Weather::VisualCrossing;
 use Moose;
 
 use Data::Dumper;

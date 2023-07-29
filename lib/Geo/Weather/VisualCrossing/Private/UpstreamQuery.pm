@@ -1,4 +1,4 @@
-package Daybo::Weather::Private::UpstreamQuery;
+package Geo::Weather::VisualCrossing::Private::UpstreamQuery;
 use Moose;
 
 use LWP::UserAgent;
