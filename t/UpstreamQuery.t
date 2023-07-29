@@ -8,6 +8,7 @@ extends 'Test::Module::Runnable';
 use Cache::MemoryCache;
 use English qw(-no_match_vars);
 use Geo::Weather::VisualCrossing::Private::UpstreamQuery;
+use HTTP::Response;
 use POSIX;
 use Scalar::Util qw(refaddr);
 use Test::Deep qw(cmp_deeply all isa methods bool re);
