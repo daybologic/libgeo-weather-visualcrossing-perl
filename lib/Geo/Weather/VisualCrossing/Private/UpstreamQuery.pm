@@ -1,6 +1,7 @@
 package Geo::Weather::VisualCrossing::Private::UpstreamQuery;
 use Moose;
 
+use English;
 use Geo::Weather::VisualCrossing;
 use JSON;
 use LWP::UserAgent;
@@ -21,9 +22,15 @@ sub query {
 		eval {
 			$decoded = $self->__decoder->decode($response->content);
 		};
-		 # TODO: Better handling for eval fail f7be3d6e-2dfd-11ee-afc1-839313550c4c
+		if (my $evalError = $EVAL_ERROR) {
+			warn $evalError;
+		}
+		# TODO: Better handling for eval fail f7be3d6e-2dfd-11ee-afc1-839313550c4c
 
 		return $decoded;
+	} else {
+		warn $response->status_line;
+		warn $uri;
 	}
 
 	return ''; # TODO: Better handling for non-success (need a logger?) 3e4fb046-2dfe-11ee-afc2-9f47472335e0
