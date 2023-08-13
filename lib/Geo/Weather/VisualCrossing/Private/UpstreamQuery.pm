@@ -45,7 +45,7 @@ sub __makeURI {
 	$uri->host($self->host);
 	$uri->path(sprintf(
 		'VisualCrossingWebServices/rest/services/timeline/%s/today',
-		uri_escape($location),
+		uri_escape_utf8($location),
 	));
 
 	$uri->query(sprintf(
