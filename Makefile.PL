@@ -31,57 +31,28 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-package ReportTests;
-use strict;
-use warnings;
-use Moose;
-extends 'Test::Module::Runnable';
-
-use Cache::MemoryCache;
-use English qw(-no_match_vars);
-use Geo::Weather::VisualCrossing::Report;
-use Geo::Weather::VisualCrossing::Report::Temperature;
-use Geo::Weather::VisualCrossing::Report::WindSpeed;
-use POSIX;
-use Test::Deep qw(cmp_deeply all isa methods bool re);
-use Test::Exception;
-use Test::More;
-
-sub setUp {
-	my ($self) = @_;
-
-	$self->sut(Geo::Weather::VisualCrossing::Report->new(
-		description    => 'Scattered clouds',
-		humidity       => 58,
-		plocation      => 'Leeds, GB',
-		sunset         => '20:59:01',
-		temperature    => Geo::Weather::VisualCrossing::Report::Temperature->new(
-			degF   => 77.10,
-		),
-		wind           => Geo::Weather::VisualCrossing::Report::WindSpeed->new(
-			deg360 => 212,
-			speed  => 17.27,
-		),
-	));
-
-	return EXIT_SUCCESS;
-}
-
-sub testScorpStuffFormat {
-	my ($self) = @_;
-	plan tests => 1;
-
-	my $expected = "Weather for Leeds, GB: Scattered clouds with a temperature of 77.1 F\n\n" .
-	    "(25 C). Wind is blowing from the South-West at 17.27 mph (27.79 kph)\n\n" .
-	    "and the humidity is 58%\n";
-
-	my $output = $self->sut->getScorpStuffFormat();
-	is($output, $expected, 'Output similar to https://api.scorpstuff.com/weather.php');
-
-	return EXIT_SUCCESS;
-}
-
 package main;
+
+use ExtUtils::MakeMaker;
 use strict;
 use warnings;
-exit(ReportTests->new->run);
+
+WriteMakefile(
+	NAME         => 'Geo::Weather::VisualCrossing',
+	VERSION_FROM => 'lib/Geo/Weather/VisualCrossing.pm', # finds $VERSION
+	AUTHOR       => 'Duncan Ross Palmer, 2E0EOL (palmer@overchat.org)',
+	ABSTRACT     => 'Geo::Weather::VisualCrossing Perl interface (www.visualcrossing.com)',
+
+	PREREQ_PM => {
+		'Moose'                  => 0,
+		'Test::MockModule'       => 0,
+		'Test::More'             => 0,
+	}, BUILD_REQUIRES => {
+		'Moose'                  => 0,
+		'Readonly'               => 0,
+		'Test::Deep'             => 0,
+		'Test::Exception'        => 0,
+		'Test::Module::Runnable' => 0,
+		'Test::More'             => 0,
+	},
+);
