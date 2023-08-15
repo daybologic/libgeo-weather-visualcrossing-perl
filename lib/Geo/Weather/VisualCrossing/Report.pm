@@ -42,10 +42,11 @@ has wind => (is => 'ro', isa => 'Geo::Weather::VisualCrossing::Report::WindSpeed
 sub getScorpStuffFormat {
 	my ($self) = @_;
 
-	return sprintf("Weather for %s: Scattered clouds with a temperature of %.1f F\n\n" .
+	return sprintf("Weather for %s: %s with a temperature of %.1f F\n\n" .
 	    "(%d C). Wind is blowing from the %s at %.2f mph (%.2f kph)\n\n" .
 	    "and the humidity is %d%%\n",
 		$self->plocation,
+		$self->description,
 		$self->temperature->degF,
 		$self->temperature->degC,
 		$self->wind->direction,
