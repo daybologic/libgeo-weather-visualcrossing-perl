@@ -49,8 +49,11 @@ sub lookup {
 
 	my $response = $self->__upstreamQuery->query($location);
 	if (length($response) > 0) {
+		my $description = $response->{description};
+		$description =~ s/ with no rain expected//; # This useless phrase never seems to change
+
 		return Geo::Weather::VisualCrossing::Report->new(
-			description    => join(', ', $response->{currentConditions}->{conditions}, $response->{description}),
+			description    => join(', ', $response->{currentConditions}->{conditions}, $description),
 			humidity       => $response->{currentConditions}->{humidity},
 			plocation      => $response->{resolvedAddress},
 			sunset         => $response->{currentConditions}->{sunset},
