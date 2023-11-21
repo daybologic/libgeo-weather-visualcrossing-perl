@@ -72,7 +72,7 @@ sub testScorpStuffFormat {
 	plan tests => 1;
 
 	my $expected = "Weather for Leeds, GB: Scattered clouds with a temperature of 77.1 F\n\n" .
-	    "(25 C). Wind is blowing from the South-West at 17.27 mph (27.79 kph)\n\n" .
+	    "(25.1 C). Wind is blowing from the South-West at 17.27 mph (27.79 kph)\n\n" .
 	    "and the humidity is 58%\n";
 
 	my $output = $self->sut->getScorpStuffFormat();

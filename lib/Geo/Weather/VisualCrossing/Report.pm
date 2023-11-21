@@ -43,7 +43,7 @@ sub getScorpStuffFormat {
 	my ($self) = @_;
 
 	return sprintf("Weather for %s: %s with a temperature of %.1f F\n\n" .
-	    "(%d C). Wind is blowing from the %s at %.2f mph (%.2f kph)\n\n" .
+	    "(%.1f C). Wind is blowing from the %s at %.2f mph (%.2f kph)\n\n" .
 	    "and the humidity is %d%%\n",
 		$self->plocation,
 		$self->description,
