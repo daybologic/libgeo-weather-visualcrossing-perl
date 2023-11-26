@@ -75,7 +75,7 @@ sub testUA {
 
 	$self->mock('LWP::UserAgent', 'env_proxy');
 
-	my $agentString = 'Geo::Weather::VisualCrossing/0.1.2';
+	my $agentString = 'Geo::Weather::VisualCrossing/0.1.3';
 	my $ua = $self->sut->__ua;
 
 	is(refaddr($self->sut->__ua), refaddr($ua), 'persistent object');
