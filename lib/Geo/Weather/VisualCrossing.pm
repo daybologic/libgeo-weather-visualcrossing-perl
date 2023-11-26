@@ -38,7 +38,7 @@ use Geo::Weather::VisualCrossing::Report::Temperature;
 use Geo::Weather::VisualCrossing::Report::WindSpeed;
 
 BEGIN {
-	our $VERSION = '0.1.2';
+	our $VERSION = '0.1.3';
 }
 
 has apiKey => (isa => 'Str', is => 'ro', lazy => 1, default => \&__makeApiKey);
