@@ -1,0 +1,32 @@
+Source: libgeo-weather-visualcrossing-perl
+Section: net
+Priority: extra
+Maintainer: Rev. Duncan Ross Palmer <2e0eol@gmail.com>
+Build-Depends: debhelper (>= 13)
+Build-Depends-Indep: libwww-perl,
+ libcache-cache-perl,
+ libdevel-cover-perl,
+ libpod-coverage-perl,
+ libreadonly-perl,
+ libjson-perl,
+ libtest-output-perl,
+ liburi-perl,
+ libmoose-perl,
+ libtest-deep-perl,
+ libtest-exception-perl
+Standards-Version: 4.5.1
+Homepage: http://www.daybologic.co.uk/
+
+Package: libgeo-weather-visualcrossing-perl
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libcache-cache-perl,
+ libjson-perl,
+ libreadonly-perl,
+ libwww-perl,
+ liburi-perl,
+ libmoose-perl
+Description: Unofficial Visual Crossing Perl interface
+ Geo::Weather::VisualCrossing (www.visualcrossing.com)
+ An online service for looking up weather.
+ This library provides an interface to obtain the current weather report.

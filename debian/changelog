@@ -1,0 +1,5 @@
+libgeo-weather-visualcrossing-perl (0.1.1) stable; urgency=medium
+
+  * Initially packaged for Debian
+
+ -- Rev. Duncan Ross Palmer <2e0eol@gmail.com>  Wed, 06 Dec 2023 22:53:47 +0000
