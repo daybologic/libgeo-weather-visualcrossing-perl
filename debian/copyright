@@ -1,0 +1,4 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/daybologic/libgeo-weather-visualcrossing-perl
+Upstream-Name: Geo::Weather::VisualCrossing
+Upstream-Contact: Rev. Duncan Ross Palmer <2e0eol@gmail.com>
