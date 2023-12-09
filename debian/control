@@ -1,5 +1,5 @@
 Source: libgeo-weather-visualcrossing-perl
-Section: net
+Section: perl
 Priority: extra
 Maintainer: Rev. Duncan Ross Palmer <2e0eol@gmail.com>
 Build-Depends: debhelper (>= 13)
