@@ -64,8 +64,7 @@ sub testURI {
 	plan tests => 1;
 
 	my $uri = $self->sut->__makeURI('Ebbw Vale');
-	is($uri, 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Ebbw%20Vale/today?unitGroup=us&key=WmzvSd9xay0jFjf7&contentType=json',
-	    $uri);
+	is($uri, '%s', 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Ebbw%20Vale/today?unitGroup=us&key=WmzvSd9xay0jFjf7&contentType=json');
 
 	return EXIT_SUCCESS;
 }
