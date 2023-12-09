@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 package UpstreamQueryTests;
+use lib 'externals/libtest-module-runnable-perl/lib';
 use strict;
 use warnings;
 use Moose;

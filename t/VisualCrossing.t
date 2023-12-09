@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 package VisualCrossingTests;
+use lib 'externals/libtest-module-runnable-perl/lib';
 use strict;
 use warnings;
 use Moose;
