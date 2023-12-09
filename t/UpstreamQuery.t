@@ -32,6 +32,7 @@
 # SUCH DAMAGE.
 
 package UpstreamQueryTests;
+use lib 'externals/libtest-module-runnable-perl/lib';
 use strict;
 use warnings;
 use Moose;
@@ -64,7 +65,7 @@ sub testURI {
 
 	my $uri = $self->sut->__makeURI('Ebbw Vale');
 	is($uri, 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Ebbw%20Vale/today?unitGroup=us&key=WmzvSd9xay0jFjf7&contentType=json',
-	    $uri);
+	   'uri');
 
 	return EXIT_SUCCESS;
 }

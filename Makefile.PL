@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-
 # Geo::Weather::VisualCrossing for Perl
 # Copyright (c) 2023, Duncan Ross Palmer (2E0EOL) and others,
 # All rights reserved.
